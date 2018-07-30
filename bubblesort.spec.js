@@ -1,6 +1,6 @@
 describe('Bubble Sort', function(){
     it('handles an empty array', function(){
-      expect( bubbleSort([]) ).toEqual( [] );
+      expect( bubbleSort([])).toEqual([]);
     });
   });
 
@@ -12,8 +12,14 @@ describe('Bubble Sort', function(){
 
   describe('multiple items', function(){
     it('handless a miltiple items', function(){
-      expect( bubbleSort([5, 7, 8]) ).toEqual( [5, 7, 8] );
+      expect( bubbleSort([9, 7, 1]) ).toEqual( [1, 7, 9] );
     });
   });
 
-  //spy
+
+  it('call spyOn', function () {
+    spyOn(window, 'swap').and.callThrough();
+    bubbleSort([1,5,4])
+    expect(swap.calls.count()).toEqual(3);
+  })
+  
